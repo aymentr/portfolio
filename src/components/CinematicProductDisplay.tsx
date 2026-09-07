@@ -79,7 +79,7 @@ export function CinematicProductDisplay({
     <div ref={ref} data-product={product} className="relative mx-auto max-w-5xl">
       {cinematicVideo?.src && (
         <div
-          className="pointer-events-none absolute -inset-x-6 -inset-y-10 overflow-hidden rounded-lg md:-inset-x-16 md:-inset-y-16"
+          className="pointer-events-none absolute -inset-x-4 -inset-y-10 overflow-hidden rounded-lg md:-inset-x-10 md:-inset-y-16"
           aria-hidden="true"
         >
           <CinematicVideo
