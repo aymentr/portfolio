@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { portrait } from '@/content/assets';
+import { founderPortrait as portrait } from '@/content/assets';
 
 interface PortraitProps {
   className?: string;
