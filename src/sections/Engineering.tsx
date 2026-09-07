@@ -1,5 +1,7 @@
 import { engineering } from '@/content/copy';
+import { cinematic } from '@/content/assets';
 import { SectionHeading } from '@/components/SectionHeading';
+import { ChapterBackdrop } from '@/components/ChapterBackdrop';
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 
 export function Engineering() {
@@ -7,6 +9,7 @@ export function Engineering() {
 
   return (
     <section id="engineering" className="relative mx-auto max-w-4xl px-6 py-32 md:px-12 md:py-48">
+      <ChapterBackdrop src={cinematic.engineering.src} poster={cinematic.engineering.poster} />
       <SectionHeading eyebrow={engineering.eyebrow}>{engineering.headline}</SectionHeading>
       <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">{engineering.body}</p>
 

@@ -1,6 +1,8 @@
 import { hero } from '@/content/copy';
+import { cinematic } from '@/content/assets';
 import { Button } from '@/components/Button';
 import { Portrait } from '@/components/Portrait';
+import { ChapterBackdrop } from '@/components/ChapterBackdrop';
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 
 export function Hero() {
@@ -8,7 +10,8 @@ export function Hero() {
 
   return (
     <section id="top" className="relative flex min-h-[100svh] items-end px-6 pb-20 pt-32 md:px-12 md:pb-28">
-      <div className="grid w-full max-w-7xl grid-cols-1 items-end gap-12 md:grid-cols-[1.4fr_0.6fr]">
+      <ChapterBackdrop src={cinematic.founder.src} poster={cinematic.founder.poster} priority />
+      <div className="relative grid w-full max-w-7xl grid-cols-1 items-end gap-12 md:grid-cols-[1.4fr_0.6fr]">
         <div ref={ref}>
           <p className="mb-6 font-display text-xs tracking-widest2 text-cool">
             {hero.founderLabel}

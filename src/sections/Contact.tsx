@@ -1,5 +1,7 @@
 import { contact } from '@/content/copy';
+import { cinematic } from '@/content/assets';
 import { Button } from '@/components/Button';
+import { ChapterBackdrop } from '@/components/ChapterBackdrop';
 import { useRevealAnimation } from '@/hooks/useRevealAnimation';
 
 export function Contact() {
@@ -7,7 +9,8 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative flex min-h-[90svh] flex-col items-center justify-center px-6 py-32 text-center md:px-12">
-      <div ref={ref}>
+      <ChapterBackdrop src={cinematic.future.src} poster={cinematic.future.poster} />
+      <div ref={ref} className="relative">
         <h2 className="max-w-3xl font-display text-[clamp(2.25rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-tightest text-paper">
           {contact.headline}
         </h2>
