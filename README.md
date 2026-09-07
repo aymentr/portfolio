@@ -50,6 +50,9 @@ public/
     │
     ├── founder/
     │   └── aymen-portrait.webp          Aymen's real photograph — never AI-substituted
+    │                                    (background-removed cutout with a feathered alpha
+    │                                    edge, so it composites directly onto the cinematic
+    │                                    scene instead of sitting in a rectangular photo card)
     │
     ├── denora/
     │   ├── dashboard.webp

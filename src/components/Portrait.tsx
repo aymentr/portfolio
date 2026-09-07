@@ -6,10 +6,12 @@ interface PortraitProps {
 }
 
 /**
- * Renders Aymen's real photograph. Per the brief's absolute rule, no
- * AI-generated substitute is ever used here — if the real file is not yet
- * present at the configured path, a restrained placeholder silhouette is
- * shown instead of a fabricated face.
+ * Renders Aymen's real photograph — a background-removed cutout with a
+ * feathered alpha edge, composited directly onto the cinematic scene behind
+ * it rather than framed in its own rectangular photo card. Per the brief's
+ * absolute rule, no AI-generated substitute is ever used here — if the real
+ * file is not yet present at the configured path, a restrained placeholder
+ * silhouette is shown instead of a fabricated face.
  */
 export function Portrait({ className = '' }: PortraitProps) {
   const [failed, setFailed] = useState(false);
@@ -38,7 +40,7 @@ export function Portrait({ className = '' }: PortraitProps) {
       alt={portrait.alt}
       loading="eager"
       onError={() => setFailed(true)}
-      className={`object-cover ${className}`}
+      className={`object-contain object-bottom ${className}`}
     />
   );
 }

@@ -30,7 +30,7 @@ export function Hero() {
           </div>
         </div>
 
-        <Portrait className="hidden aspect-[3/4] w-full rounded-md md:block" />
+        <Portrait className="hidden aspect-[3/4] w-full md:block" />
       </div>
 
       <span className="sr-only">
