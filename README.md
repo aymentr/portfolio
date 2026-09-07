@@ -19,6 +19,28 @@ npm run build     # typecheck + production build
 npm run lint
 ```
 
+## Deployment (GitHub Pages)
+
+Served from `https://aymentr.github.io/portfolio/` — a subpath, not a
+domain root, so `vite.config.ts` sets `base: '/portfolio/'` and every
+runtime asset path in `src/content/assets.ts` is built through a
+`withBase()` helper (Vite only rewrites root-absolute paths it can see
+statically, e.g. in `index.html`; plain string literals in `.ts` files
+need this done by hand).
+
+`.github/workflows/deploy.yml` builds and publishes `dist/` to Pages on
+every push to `main`, via `actions/upload-pages-artifact` +
+`actions/deploy-pages`. Two one-time manual steps this workflow can't do
+for itself:
+
+1. Merge (or push) this to `main` — Pages deploys off that branch.
+2. In the repo's **Settings → Pages**, set **Source** to **GitHub
+   Actions** (only needs doing once; not something achievable via the
+   API access available here).
+
+After that, every push to `main` redeploys automatically — check the
+**Actions** tab for build/deploy status and the live URL.
+
 ## Project structure
 
 ```

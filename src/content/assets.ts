@@ -13,6 +13,17 @@
  * or brand assets.
  */
 
+/**
+ * Prefixes a public/-relative path with Vite's configured base URL, so
+ * these paths resolve correctly whether the site is served from a domain
+ * root or a subpath (e.g. https://aymentr.github.io/portfolio/). Vite only
+ * rewrites root-absolute paths it can statically see (index.html, imports)
+ * — plain string literals like the ones below need this done by hand.
+ */
+function withBase(path: string): string {
+  return `${import.meta.env.BASE_URL}${path}`.replace(/([^:])\/\/+/g, '$1/');
+}
+
 export interface AssetSlot {
   /** Path relative to /public the real file should be placed at. */
   src: string;
@@ -21,26 +32,26 @@ export interface AssetSlot {
 }
 
 export const founderPortrait: AssetSlot = {
-  src: '/assets/founder/aymen-portrait.webp',
+  src: withBase('assets/founder/aymen-portrait.webp'),
   alt: 'Aymen Troudi, founder and software engineer',
 };
 
 export const atrLogo: AssetSlot = {
-  src: '/assets/brand/atr-logo.svg',
+  src: withBase('assets/brand/atr-logo.svg'),
   alt: 'ATR Business Solutions logo',
 };
 
 export const denoraScreenshots: AssetSlot[] = [
-  { src: '/assets/denora/dashboard.webp', alt: 'Denora dashboard' },
-  { src: '/assets/denora/patients.webp', alt: 'Denora patient records' },
-  { src: '/assets/denora/appointments.webp', alt: 'Denora appointments view' },
-  { src: '/assets/denora/treatments.webp', alt: 'Denora treatment planning' },
-  { src: '/assets/denora/odontogram.webp', alt: 'Denora odontogram' },
+  { src: withBase('assets/denora/dashboard.webp'), alt: 'Denora dashboard' },
+  { src: withBase('assets/denora/patients.webp'), alt: 'Denora patient records' },
+  { src: withBase('assets/denora/appointments.webp'), alt: 'Denora appointments view' },
+  { src: withBase('assets/denora/treatments.webp'), alt: 'Denora treatment planning' },
+  { src: withBase('assets/denora/odontogram.webp'), alt: 'Denora odontogram' },
 ];
 
 export const legalSnapScreenshots: AssetSlot[] = [
-  { src: '/assets/legalsnap/dashboard.webp', alt: 'LegalSnap dashboard' },
-  { src: '/assets/legalsnap/workflow.webp', alt: 'LegalSnap case workflow' },
+  { src: withBase('assets/legalsnap/dashboard.webp'), alt: 'LegalSnap dashboard' },
+  { src: withBase('assets/legalsnap/workflow.webp'), alt: 'LegalSnap case workflow' },
 ];
 
 /**
@@ -52,13 +63,19 @@ export const legalSnapScreenshots: AssetSlot[] = [
  * it never generates the logo, screenshots, portrait or any readable text.
  */
 export const cinematic = {
-  founder: { src: '/assets/cinematic/founder.mp4', poster: '/assets/cinematic/founder-poster.jpg' },
-  atr: { src: '/assets/cinematic/atr.mp4', poster: '/assets/cinematic/atr-poster.jpg' },
-  denora: { src: '/assets/cinematic/denora.mp4', poster: '/assets/cinematic/denora-poster.jpg' },
-  legalsnap: { src: '/assets/cinematic/legalsnap.mp4', poster: '/assets/cinematic/legalsnap-poster.jpg' },
-  engineering: { src: '/assets/cinematic/engineering.mp4', poster: '/assets/cinematic/engineering-poster.jpg' },
-  builder: { src: '/assets/cinematic/builder.mp4', poster: '/assets/cinematic/builder-poster.jpg' },
-  future: { src: '/assets/cinematic/future.mp4', poster: '/assets/cinematic/future-poster.jpg' },
+  founder: { src: withBase('assets/cinematic/founder.mp4'), poster: withBase('assets/cinematic/founder-poster.jpg') },
+  atr: { src: withBase('assets/cinematic/atr.mp4'), poster: withBase('assets/cinematic/atr-poster.jpg') },
+  denora: { src: withBase('assets/cinematic/denora.mp4'), poster: withBase('assets/cinematic/denora-poster.jpg') },
+  legalsnap: {
+    src: withBase('assets/cinematic/legalsnap.mp4'),
+    poster: withBase('assets/cinematic/legalsnap-poster.jpg'),
+  },
+  engineering: {
+    src: withBase('assets/cinematic/engineering.mp4'),
+    poster: withBase('assets/cinematic/engineering-poster.jpg'),
+  },
+  builder: { src: withBase('assets/cinematic/builder.mp4'), poster: withBase('assets/cinematic/builder-poster.jpg') },
+  future: { src: withBase('assets/cinematic/future.mp4'), poster: withBase('assets/cinematic/future-poster.jpg') },
 } as const;
 
 export type CinematicKey = keyof typeof cinematic;
