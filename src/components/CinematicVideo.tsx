@@ -61,7 +61,6 @@ export function CinematicVideo({ src, poster, priority = false, className = '' }
     <video
       ref={videoRef}
       className={className}
-      src={src}
       poster={poster}
       muted
       loop
@@ -69,6 +68,12 @@ export function CinematicVideo({ src, poster, priority = false, className = '' }
       preload={priority ? 'auto' : 'none'}
       aria-hidden="true"
       onError={() => setFailed(true)}
-    />
+    >
+      {/* WebM/VP9 first: smaller and royalty-free. Falls back to the MP4 for
+          browsers without VP9 support. If a clip has no .webm companion this
+          source simply 404s and the browser moves on to the next one. */}
+      <source src={src.replace(/\.mp4$/i, '.webm')} type="video/webm" />
+      <source src={src} type="video/mp4" />
+    </video>
   );
 }
