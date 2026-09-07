@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import type { AssetSlot } from '@/content/assets';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
+import { CinematicVideo } from './CinematicVideo';
 
 interface CinematicProductDisplayProps {
   product: 'denora' | 'legalsnap';
   label: string;
   screenshots: AssetSlot[];
   tone: 'calm' | 'analytical';
+  /** Optional Seedance environment composited behind the real screenshots. */
+  cinematicVideo?: { src?: string; poster?: string };
 }
 
 function ProductScreen({ shot, tone, index }: { shot: AssetSlot; tone: 'calm' | 'analytical'; index: number }) {
@@ -63,24 +66,42 @@ function ProductScreen({ shot, tone, index }: { shot: AssetSlot; tone: 'calm' | 
  * target paths, each slot shows a clearly-labelled placeholder rather than
  * an invented interface.
  */
-export function CinematicProductDisplay({ product, label, screenshots, tone }: CinematicProductDisplayProps) {
+export function CinematicProductDisplay({
+  product,
+  label,
+  screenshots,
+  tone,
+  cinematicVideo,
+}: CinematicProductDisplayProps) {
   const [ref, progress] = useScrollProgress<HTMLDivElement>();
 
   return (
-    <div
-      ref={ref}
-      data-product={product}
-      className="relative mx-auto grid max-w-5xl gap-6 md:grid-cols-2"
-      style={{
-        opacity: Math.min(1, progress * 3),
-        transform: `translateY(${(1 - Math.min(1, progress * 2.2)) * 24}px)`,
-      }}
-    >
-      {screenshots.map((shot, i) => (
-        <div key={shot.src} className={screenshots.length === 1 ? 'md:col-span-2' : ''}>
-          <ProductScreen shot={shot} tone={tone} index={i} />
+    <div ref={ref} data-product={product} className="relative mx-auto max-w-5xl">
+      {cinematicVideo?.src && (
+        <div
+          className="pointer-events-none absolute -inset-x-6 -inset-y-10 overflow-hidden rounded-lg md:-inset-x-16 md:-inset-y-16"
+          aria-hidden="true"
+        >
+          <CinematicVideo
+            src={cinematicVideo.src}
+            poster={cinematicVideo.poster}
+            className="h-full w-full object-cover opacity-45"
+          />
         </div>
-      ))}
+      )}
+      <div
+        className="relative grid gap-6 md:grid-cols-2"
+        style={{
+          opacity: Math.min(1, progress * 3),
+          transform: `translateY(${(1 - Math.min(1, progress * 2.2)) * 24}px)`,
+        }}
+      >
+        {screenshots.map((shot, i) => (
+          <div key={shot.src} className={screenshots.length === 1 ? 'md:col-span-2' : ''}>
+            <ProductScreen shot={shot} tone={tone} index={i} />
+          </div>
+        ))}
+      </div>
       <span className="sr-only">{label} product interface</span>
     </div>
   );

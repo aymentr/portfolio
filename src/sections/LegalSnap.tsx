@@ -1,5 +1,5 @@
 import { legalsnap } from '@/content/copy';
-import { legalSnapScreenshots } from '@/content/assets';
+import { legalSnapScreenshots, cinematic } from '@/content/assets';
 import { SectionHeading } from '@/components/SectionHeading';
 import { CinematicProductDisplay } from '@/components/CinematicProductDisplay';
 
@@ -16,6 +16,7 @@ export function LegalSnap() {
           label={legalsnap.headline}
           screenshots={legalSnapScreenshots}
           tone={legalsnap.tone}
+          cinematicVideo={cinematic.legalsnap}
         />
       </div>
     </section>

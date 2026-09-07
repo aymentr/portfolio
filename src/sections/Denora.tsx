@@ -1,5 +1,5 @@
 import { denora } from '@/content/copy';
-import { denoraScreenshots } from '@/content/assets';
+import { denoraScreenshots, cinematic } from '@/content/assets';
 import { SectionHeading } from '@/components/SectionHeading';
 import { CinematicProductDisplay } from '@/components/CinematicProductDisplay';
 
@@ -16,6 +16,7 @@ export function Denora() {
           label={denora.headline}
           screenshots={denoraScreenshots}
           tone={denora.tone}
+          cinematicVideo={cinematic.denora}
         />
       </div>
     </section>
