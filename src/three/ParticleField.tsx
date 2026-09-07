@@ -7,6 +7,26 @@ interface ParticleFieldProps {
   radius?: number;
 }
 
+/** A soft radial-falloff sprite so particles read as atmospheric dust, not hard WebGL squares. */
+function useSoftDotTexture() {
+  return useMemo(() => {
+    const size = 64;
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d')!;
+    const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.4, 'rgba(255,255,255,0.5)');
+    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, size, size);
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }, []);
+}
+
 /**
  * A sparse field of drifting motes — the atmospheric haze described across
  * every Seedance chapter in the brief, rendered procedurally since no real
@@ -14,6 +34,7 @@ interface ParticleFieldProps {
  */
 export function ParticleField({ count = 900, radius = 22 }: ParticleFieldProps) {
   const points = useRef<THREE.Points>(null);
+  const dotTexture = useSoftDotTexture();
 
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3);
@@ -39,12 +60,15 @@ export function ParticleField({ count = 900, radius = 22 }: ParticleFieldProps) 
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.045}
+        map={dotTexture}
+        alphaMap={dotTexture}
+        size={0.09}
         color="#c3ccd9"
         transparent
-        opacity={0.55}
+        opacity={0.6}
         sizeAttenuation
         depthWrite={false}
+        blending={THREE.AdditiveBlending}
       />
     </points>
   );
