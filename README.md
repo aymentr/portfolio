@@ -106,6 +106,15 @@ screenshots for Denora and LegalSnap — the screenshot is always the
 foreground source of truth; the video is only ever the environment around
 it.
 
+## SEO
+
+`index.html` sets a real title, meta description and Open Graph tags, and
+`public/robots.txt` allows full crawling. A `sitemap.xml` and `<link
+rel="canonical">` are intentionally not included yet — both require the
+production domain, and guessing one would bake a wrong URL into the site.
+Add them once the site is deployed to its real domain (for a single-page
+site, a sitemap's value is marginal anyway).
+
 ## Accessibility & performance
 
 - `prefers-reduced-motion` disables Lenis, GSAP scroll animation, cinematic
