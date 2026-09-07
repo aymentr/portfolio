@@ -63,23 +63,23 @@ public/
     │   └── workflow.webp
     │
     └── cinematic/                        Seedance 2.5 environments (+ poster stills)
-        ├── founder.mp4 / founder-poster.jpg     — pending: needs Aymen's real photo as identity reference
+        ├── founder.mp4 / founder.webm / founder-poster.jpg
         ├── atr.mp4 / atr.webm / atr-poster.jpg
         ├── denora.mp4 / denora.webm / denora-poster.jpg
         ├── legalsnap.mp4 / legalsnap.webm / legalsnap-poster.jpg
         ├── engineering.mp4 / engineering.webm / engineering-poster.jpg
-        ├── builder.mp4 / builder-poster.jpg     — pending: needs Aymen's real photo as identity reference
+        ├── builder.mp4 / builder.webm / builder-poster.jpg
         └── future.mp4 / future.webm / future-poster.jpg
 ```
 
-Five of the seven chapters (ATR, Denora, LegalSnap, Engineering, Future) are
-generated — Seedance 2.5 via Higgsfield, text-to-video, no reference
-image needed since these are abstract architectural environments. The
-remaining two (Founder, Builder) require Aymen's real photo as the
-identity reference before they can be generated at all: the brief is
-explicit that his likeness is never fabricated, so those two stay
-placeholder-only (the procedural WebGL scene) until a real photo is
-provided.
+All seven chapters are generated — Seedance 2.5 via Higgsfield. ATR,
+Denora, LegalSnap, Engineering and Future are plain text-to-video (no
+reference image needed for abstract architectural environments).
+Founder and Builder use Higgsfield's `omni_reference` mode with Aymen's
+real photo (`founder/aymen-portrait.webp`) as the identity reference —
+generated only once that photo was actually provided and the person it
+belongs to confirmed he was fine with it going to that third-party
+service for this purpose.
 
 Each generated clip has a `.webm` (VP9) companion alongside its `.mp4`
 (H.264) — `CinematicVideo` renders both as `<source>` children so the
