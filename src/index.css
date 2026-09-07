@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-void: #08090b;
+  --color-graphite: #101114;
+  --color-charcoal: #17181c;
+  --color-metal: #2a2c31;
+  --color-paper: #f4f3f0;
+  --color-mist: rgba(244, 243, 240, 0.62);
+  --color-cool: #5b7c99;
+  --color-violet: #5d5a78;
+  --color-point: #eef4ff;
+
+  --font-display: 'Neue Montreal', 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
+
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--color-void);
+  color: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  position: relative;
+}
+
+::selection {
+  background: var(--color-cool);
+  color: var(--color-void);
+}
+
+a,
+button {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Visible focus ring everywhere — never sacrifice usability for aesthetics. */
+:focus-visible {
+  outline: 2px solid var(--color-cool);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  background: var(--color-paper);
+  color: var(--color-void);
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  transition: top 0.2s var(--ease-cinematic);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
