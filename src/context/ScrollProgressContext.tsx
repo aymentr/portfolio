@@ -35,7 +35,7 @@ export function useGlobalScrollProgress() {
 /** The nine narrative chapters, in scroll order, each given an equal share of the timeline. */
 export const CHAPTERS = [
   'hero',
-  'founder-intro',
+  'founder',
   'atr',
   'denora',
   'legalsnap',

@@ -17,8 +17,8 @@ export const hero = {
   ctaSecondary: "LET'S TALK",
 };
 
-export const founderIntro = {
-  eyebrow: 'FROM IDEA TO PRODUCT',
+export const founder = {
+  eyebrow: 'THE FOUNDER',
   headline: 'I don’t simply write software.',
   body: 'I identify problems, design products, build systems and turn ideas into real digital businesses — across design, architecture, engineering, iteration, business and launch.',
 };

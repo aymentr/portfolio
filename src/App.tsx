@@ -5,7 +5,7 @@ import { StaticBackground } from '@/three/StaticBackground';
 import { Nav } from '@/components/Nav';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { Hero } from '@/sections/Hero';
-import { FounderIntro } from '@/sections/FounderIntro';
+import { Founder } from '@/sections/Founder';
 import { ATR } from '@/sections/ATR';
 import { Denora } from '@/sections/Denora';
 import { LegalSnap } from '@/sections/LegalSnap';
@@ -36,7 +36,7 @@ function Experience() {
       <Nav />
       <main id="main" className="relative z-10">
         <Hero />
-        <FounderIntro />
+        <Founder />
         <ATR />
         <Denora />
         <LegalSnap />
