@@ -13,7 +13,7 @@ export function BrandLogo({ className = '' }: { className?: string }) {
 
   if (failed) {
     return (
-      <p className={`font-display tracking-tightest text-void ${className}`}>ATR BUSINESS SOLUTIONS</p>
+      <p className={`font-display tracking-tightest text-paper ${className}`}>ATR BUSINESS SOLUTIONS</p>
     );
   }
 
