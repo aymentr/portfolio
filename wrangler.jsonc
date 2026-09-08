@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers static-assets deploy for the built Vite site.
+  // "name" must match this project's Worker name in the Cloudflare
+  // dashboard — update it if the connected project isn't called "portfolio".
+  "name": "portfolio",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./dist"
+  }
+}
