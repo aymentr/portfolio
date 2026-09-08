@@ -50,7 +50,7 @@ src/
   context/         global scroll-progress provider driving the 3D scene
   hooks/           useSmoothScroll, useRevealAnimation, useParallax, useScrollProgress, useReducedMotion
   three/           the WebGL "point of light" environment (R3F)
-  components/      shared UI: Nav, Button, CinematicProductDisplay, CinematicVideo, ChapterBackdrop, Portrait, BrandLogo, ...
+  components/      shared UI: Nav, Button, CinematicProductDisplay, CinematicVideo, ChapterBackdrop, BrandLogo, ...
   sections/        one file per chapter (Hero, Founder, ATR, Denora, LegalSnap, Engineering, About, Philosophy, Contact)
 ```
 
@@ -69,12 +69,6 @@ public/
 └── assets/
     ├── brand/
     │   └── atr-logo.svg                 the official ATR logo — used exactly as supplied, never redrawn
-    │
-    ├── founder/
-    │   └── aymen-portrait.webp          Aymen's real photograph — never AI-substituted
-    │                                    (background-removed cutout with a feathered alpha
-    │                                    edge, so it composites directly onto the cinematic
-    │                                    scene instead of sitting in a rectangular photo card)
     │
     ├── denora/
     │   ├── dashboard.webp
@@ -100,11 +94,11 @@ public/
 All seven chapters are generated — Seedance 2.5 via Higgsfield. ATR,
 Denora, LegalSnap, Engineering and Future are plain text-to-video (no
 reference image needed for abstract architectural environments).
-Founder and Builder use Higgsfield's `omni_reference` mode with Aymen's
-real photo (`founder/aymen-portrait.webp`) as the identity reference —
-generated only once that photo was actually provided and the person it
-belongs to confirmed he was fine with it going to that third-party
-service for this purpose.
+Founder and Builder were generated with Higgsfield's `omni_reference`
+mode using Aymen's real photo as a one-time identity reference — the
+photo itself isn't kept in this repo (only these two resulting video
+clips are), and the site no longer displays it as a still image
+anywhere.
 
 Each generated clip has a `.webm` (VP9) companion alongside its `.mp4`
 (H.264) — `CinematicVideo` renders both as `<source>` children so the

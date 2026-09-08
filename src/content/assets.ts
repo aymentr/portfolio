@@ -31,11 +31,6 @@ export interface AssetSlot {
   alt: string;
 }
 
-export const founderPortrait: AssetSlot = {
-  src: withBase('assets/founder/aymen-portrait.webp'),
-  alt: 'Aymen Troudi, founder and software engineer',
-};
-
 export const atrLogo: AssetSlot = {
   src: withBase('assets/brand/atr-logo.svg'),
   alt: 'ATR Business Solutions logo',
