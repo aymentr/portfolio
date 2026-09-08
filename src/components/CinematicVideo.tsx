@@ -23,6 +23,11 @@ export function CinematicVideo({ src, poster, priority = false, className = '' }
   const [inView, setInView] = useState(priority);
   const [failed, setFailed] = useState(false);
   const reducedMotion = useReducedMotion();
+  // Once a clip has actually produced frames we never treat it as "missing"
+  // again. Mobile browsers release the video decoder while the tab is
+  // backgrounded (screen lock, app switch) and fire an `error` on resume —
+  // that must not permanently remove a clip that was playing fine.
+  const loadedOnce = useRef(false);
 
   useEffect(() => {
     const el = videoRef.current;
@@ -39,14 +44,35 @@ export function CinematicVideo({ src, poster, priority = false, className = '' }
     const el = videoRef.current;
     if (!el || reducedMotion) return;
 
-    if (inView) {
-      el.play().catch(() => {
-        // Autoplay can be blocked by the browser; the poster frame (or the
-        // procedural scene behind it) still carries the shot.
-      });
-    } else {
-      el.pause();
-    }
+    const resume = () => {
+      // Only drive playback for a clip that's on-screen and a tab that's
+      // actually visible; otherwise leave it paused.
+      if (!inView || document.visibilityState !== 'visible') return;
+      const play = () => el.play().catch(() => {});
+      // If the decoder was released while backgrounded the element loses its
+      // buffered data — reload before replaying so it repaints instead of
+      // sitting on a blank frame.
+      if (el.readyState < 2) {
+        try {
+          el.load();
+        } catch {
+          /* no-op */
+        }
+      }
+      play();
+    };
+
+    if (inView) resume();
+    else el.pause();
+
+    // Re-assert playback when the tab becomes visible again (returning from a
+    // screen lock or app switch) or is restored from the back/forward cache.
+    document.addEventListener('visibilitychange', resume);
+    window.addEventListener('pageshow', resume);
+    return () => {
+      document.removeEventListener('visibilitychange', resume);
+      window.removeEventListener('pageshow', resume);
+    };
   }, [inView, reducedMotion]);
 
   if (!src || failed) return null;
@@ -67,7 +93,16 @@ export function CinematicVideo({ src, poster, priority = false, className = '' }
       playsInline
       preload={priority ? 'auto' : 'none'}
       aria-hidden="true"
-      onError={() => setFailed(true)}
+      onLoadedData={() => {
+        loadedOnce.current = true;
+      }}
+      onError={() => {
+        // A clip that never produced frames is genuinely missing/unsupported —
+        // hide it so the procedural scene shows through. A clip that HAS played
+        // before hit a transient decoder loss (backgrounding); keep it mounted
+        // and let the visibility/`pageshow` handler recover it on resume.
+        if (!loadedOnce.current) setFailed(true);
+      }}
     >
       {/* WebM/VP9 first: smaller and royalty-free. Falls back to the MP4 for
           browsers without VP9 support. If a clip has no .webm companion this
