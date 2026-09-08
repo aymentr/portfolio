@@ -37,11 +37,11 @@ export const atrLogo: AssetSlot = {
 };
 
 export const denoraScreenshots: AssetSlot[] = [
-  { src: withBase('assets/denora/dashboard.webp'), alt: 'Denora dashboard' },
-  { src: withBase('assets/denora/patients.webp'), alt: 'Denora patient records' },
-  { src: withBase('assets/denora/appointments.webp'), alt: 'Denora appointments view' },
-  { src: withBase('assets/denora/treatments.webp'), alt: 'Denora treatment planning' },
-  { src: withBase('assets/denora/odontogram.webp'), alt: 'Denora odontogram' },
+  { src: withBase('assets/denora/dashboard.webp'), alt: 'Denora dashboard — live waiting-room board and daily overview' },
+  { src: withBase('assets/denora/calendar.webp'), alt: 'Denora appointment calendar — week view across treatment rooms' },
+  { src: withBase('assets/denora/patient.webp'), alt: 'Denora patient profile with interactive FDI tooth chart' },
+  { src: withBase('assets/denora/recalls.webp'), alt: 'Denora patient recall management' },
+  { src: withBase('assets/denora/intake.webp'), alt: 'Denora QR patient intake — smartphone self-registration' },
 ];
 
 export const legalSnapScreenshots: AssetSlot[] = [

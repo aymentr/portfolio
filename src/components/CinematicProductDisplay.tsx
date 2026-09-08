@@ -18,7 +18,7 @@ function ProductScreen({ shot, tone, index }: { shot: AssetSlot; tone: 'calm' | 
   return (
     <div
       className={[
-        'relative aspect-[16/10] w-full overflow-hidden rounded-md border',
+        'relative aspect-[16/10] w-full overflow-hidden rounded-md border bg-graphite',
         tone === 'calm' ? 'border-cool/25' : 'border-violet/30',
       ].join(' ')}
       style={{
@@ -32,7 +32,7 @@ function ProductScreen({ shot, tone, index }: { shot: AssetSlot; tone: 'calm' | 
           alt={shot.alt}
           loading="lazy"
           onError={() => setFailed(true)}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
         />
       ) : (
         <div
@@ -96,11 +96,18 @@ export function CinematicProductDisplay({
           transform: `translateY(${(1 - Math.min(1, progress * 2.2)) * 24}px)`,
         }}
       >
-        {screenshots.map((shot, i) => (
-          <div key={shot.src} className={screenshots.length === 1 ? 'md:col-span-2' : ''}>
-            <ProductScreen shot={shot} tone={tone} index={i} />
-          </div>
-        ))}
+        {screenshots.map((shot, i) => {
+          // A lone card (1 total) or the final card of an odd set spans the
+          // full width so the grid never ends on a half-empty row.
+          const spanFull =
+            screenshots.length === 1 ||
+            (screenshots.length % 2 === 1 && i === screenshots.length - 1);
+          return (
+            <div key={shot.src} className={spanFull ? 'md:col-span-2' : ''}>
+              <ProductScreen shot={shot} tone={tone} index={i} />
+            </div>
+          );
+        })}
       </div>
       <span className="sr-only">{label} product interface</span>
     </div>
