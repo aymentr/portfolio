@@ -14,7 +14,14 @@ export function ATR() {
       <SectionHeading eyebrow={atr.eyebrow}>{atr.headline}</SectionHeading>
       <div ref={ref} className="mt-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:justify-between">
         <p className="max-w-md text-lg leading-relaxed text-mist">{atr.body}</p>
-        <BrandLogo className="w-full max-w-sm drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" />
+        <div className="relative flex w-full max-w-sm items-center justify-center py-10">
+          {/* An oversized, blurred plaque — only its feathered edges are soft;
+              the area directly behind the logo stays solid, so the logo's own
+              dark wordmark reads against the dark scene without altering the
+              asset itself. */}
+          <div className="absolute -inset-4 rounded-2xl bg-paper blur-xl" aria-hidden="true" />
+          <BrandLogo className="relative w-full" />
+        </div>
       </div>
     </section>
   );
