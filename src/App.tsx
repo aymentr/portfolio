@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { ScrollProgressProvider } from '@/context/ScrollProgressContext';
 import { useSmoothScroll } from '@/hooks/useSmoothScroll';
 import { StaticBackground } from '@/three/StaticBackground';
+import { BackgroundBoundary } from '@/components/BackgroundBoundary';
 import { Nav } from '@/components/Nav';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { Hero } from '@/sections/Hero';
@@ -29,9 +30,11 @@ function Experience() {
       <a href="#main" className="skip-link">
         Skip to content
       </a>
-      <Suspense fallback={<StaticBackground />}>
-        <CinematicBackground />
-      </Suspense>
+      <BackgroundBoundary>
+        <Suspense fallback={<StaticBackground />}>
+          <CinematicBackground />
+        </Suspense>
+      </BackgroundBoundary>
       <ScrollProgressBar />
       <Nav />
       <main id="main" className="relative z-10">

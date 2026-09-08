@@ -18,8 +18,8 @@
   --color-violet: 93 90 120;
   --color-point: 238 244 255;
 
-  --font-display: 'Neue Montreal', 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
-  --font-body: 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', 'Neue Montreal', 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', 'Suisse Int\'l', -apple-system, sans-serif;
 
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
 

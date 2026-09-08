@@ -5,18 +5,84 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#08090b" />
+
     <title>Aymen Troudi — Founder & Software Engineer</title>
     <meta
       name="description"
       content="Aymen Troudi is a founder and software engineer building digital products, intelligent systems and scalable businesses — founder of ATR Business Solutions, Denora and LegalSnap."
     />
+    <link rel="canonical" href="https://aymentroudi.com/" />
+    <meta name="author" content="Aymen Troudi" />
+
+    <!-- Real webfonts: the design intent (an architectural grotesk for display,
+         a clean neutral sans for body) needs actual faces loaded — otherwise
+         everything falls back to the system font. Space Grotesk + Inter are the
+         closest freely-available match to the brief's Neue Montreal / Suisse.
+         Loaded asynchronously (preload → stylesheet on load) so a slow or
+         unreachable Google Fonts never blocks script execution or first paint;
+         font-display: swap renders text immediately in the fallback face. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      />
+    </noscript>
+
+    <!-- Open Graph / social -->
+    <meta property="og:site_name" content="Aymen Troudi" />
     <meta property="og:title" content="Aymen Troudi — Founder & Software Engineer" />
     <meta
       property="og:description"
       content="Founder and software engineer creating digital products, intelligent systems and scalable businesses. Founder of ATR Business Solutions, Denora and LegalSnap."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aymentroudi.com/" />
+    <meta property="og:image" content="https://aymentroudi.com/assets/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Aymen Troudi — Founder & Software Engineer" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aymen Troudi — Founder & Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Founder and software engineer creating digital products, intelligent systems and scalable businesses."
+    />
+    <meta name="twitter:image" content="https://aymentroudi.com/assets/og-cover.jpg" />
+
+    <!-- Structured data: a Person entity so search engines and social tools can
+         attribute the site to Aymen and surface his ventures. Only facts the
+         brief provided — no invented claims. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aymen Troudi",
+        "jobTitle": "Founder & Software Engineer",
+        "url": "https://aymentroudi.com/",
+        "email": "mailto:troudiaymen05@gmail.com",
+        "worksFor": [
+          { "@type": "Organization", "name": "ATR Business Solutions" },
+          { "@type": "Organization", "name": "Denora" },
+          { "@type": "Organization", "name": "LegalSnap" }
+        ],
+        "knowsAbout": [
+          "Software Engineering",
+          "Product Design",
+          "System Architecture",
+          "Digital Products"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
