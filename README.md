@@ -68,7 +68,8 @@ placeholder (images) or simply lets the procedural WebGL scene show through
 public/
 └── assets/
     ├── brand/
-    │   └── atr-logo.svg                 the official ATR logo — used exactly as supplied, never redrawn
+    │   └── atr-logo.png                 the official ATR logo — used exactly as supplied (byte-identical
+    │                                    to the provided file), never redrawn or recolored
     │
     ├── denora/
     │   ├── dashboard.webp

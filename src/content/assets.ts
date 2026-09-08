@@ -32,8 +32,8 @@ export interface AssetSlot {
 }
 
 export const atrLogo: AssetSlot = {
-  src: withBase('assets/brand/atr-logo.svg'),
-  alt: 'ATR Business Solutions logo',
+  src: withBase('assets/brand/atr-logo.png'),
+  alt: 'ATR Business Solutions logo — "Software That Works"',
 };
 
 export const denoraScreenshots: AssetSlot[] = [

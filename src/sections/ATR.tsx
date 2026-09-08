@@ -14,8 +14,8 @@ export function ATR() {
       <SectionHeading eyebrow={atr.eyebrow}>{atr.headline}</SectionHeading>
       <div ref={ref} className="mt-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:justify-between">
         <p className="max-w-md text-lg leading-relaxed text-mist">{atr.body}</p>
-        <div className="flex h-32 w-full max-w-xs items-center justify-center rounded-md border border-white/10 bg-graphite/60 px-8 backdrop-blur-sm">
-          <BrandLogo className="max-h-16 w-auto" />
+        <div className="flex w-full max-w-sm items-center justify-center rounded-lg bg-paper px-10 py-8 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.65)]">
+          <BrandLogo className="w-full" />
         </div>
       </div>
     </section>
