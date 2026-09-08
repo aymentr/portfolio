@@ -13,13 +13,12 @@ export function ATR() {
       <ChapterBackdrop src={cinematic.atr.src} poster={cinematic.atr.poster} />
       <SectionHeading eyebrow={atr.eyebrow}>{atr.headline}</SectionHeading>
       <div ref={ref} className="mt-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:justify-between">
-        <p className="max-w-md text-lg leading-relaxed text-mist">{atr.body}</p>
-        <div className="relative flex w-full max-w-sm items-center justify-center py-10">
-          {/* An oversized, blurred plaque — only its feathered edges are soft;
-              the area directly behind the logo stays solid, so the logo's own
-              dark wordmark reads against the dark scene without altering the
-              asset itself. */}
-          <div className="absolute -inset-4 rounded-2xl bg-paper blur-xl" aria-hidden="true" />
+        <p className="max-w-md text-lg leading-relaxed text-mist/60">{atr.body}</p>
+        <div className="relative flex w-full max-w-sm items-center justify-center py-4">
+          {/* A soft glow sized to the logo itself — enough to lift the logo's
+              own dark text off the dark scene without reading as a card or
+              dominating the section. The asset itself is untouched. */}
+          <div className="absolute -inset-3 rounded-xl bg-paper/95 blur-sm" aria-hidden="true" />
           <BrandLogo className="relative w-full" />
         </div>
       </div>

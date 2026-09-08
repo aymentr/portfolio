@@ -11,15 +11,18 @@ export default {
     },
     extend: {
       colors: {
-        void: 'var(--color-void)',
-        graphite: 'var(--color-graphite)',
-        charcoal: 'var(--color-charcoal)',
-        metal: 'var(--color-metal)',
-        paper: 'var(--color-paper)',
-        mist: 'var(--color-mist)',
-        cool: 'var(--color-cool)',
-        violet: 'var(--color-violet)',
-        point: 'var(--color-point)',
+        // rgb(var(--x) / <alpha-value>) is required for Tailwind's opacity
+        // modifiers (bg-paper/50, text-mist/60, ...) to work with CSS custom
+        // properties — see the comment above the variables in index.css.
+        void: 'rgb(var(--color-void) / <alpha-value>)',
+        graphite: 'rgb(var(--color-graphite) / <alpha-value>)',
+        charcoal: 'rgb(var(--color-charcoal) / <alpha-value>)',
+        metal: 'rgb(var(--color-metal) / <alpha-value>)',
+        paper: 'rgb(var(--color-paper) / <alpha-value>)',
+        mist: 'rgb(var(--color-mist) / <alpha-value>)',
+        cool: 'rgb(var(--color-cool) / <alpha-value>)',
+        violet: 'rgb(var(--color-violet) / <alpha-value>)',
+        point: 'rgb(var(--color-point) / <alpha-value>)',
       },
       fontFamily: {
         display: ['var(--font-display)'],

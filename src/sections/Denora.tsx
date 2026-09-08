@@ -9,7 +9,7 @@ export function Denora() {
       <SectionHeading eyebrow={denora.eyebrow} align="center">
         {denora.headline}
       </SectionHeading>
-      <p className="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-mist">{denora.body}</p>
+      <p className="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-mist/60">{denora.body}</p>
       <div className="mt-16">
         <CinematicProductDisplay
           product="denora"

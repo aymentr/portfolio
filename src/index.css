@@ -3,15 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --color-void: #08090b;
-  --color-graphite: #101114;
-  --color-charcoal: #17181c;
-  --color-metal: #2a2c31;
-  --color-paper: #f4f3f0;
-  --color-mist: rgba(244, 243, 240, 0.62);
-  --color-cool: #5b7c99;
-  --color-violet: #5d5a78;
-  --color-point: #eef4ff;
+  /* RGB channel triplets (no commas), consumed as rgb(var(--x) / <alpha-value>)
+     in tailwind.config.js — this is the format Tailwind's opacity modifiers
+     (bg-paper/50, text-mist/60, ...) require to actually work with CSS
+     custom properties. A bare hex/rgba string here silently produces a
+     fully transparent color whenever a /NN modifier is applied. */
+  --color-void: 8 9 11;
+  --color-graphite: 16 17 20;
+  --color-charcoal: 23 24 28;
+  --color-metal: 42 44 49;
+  --color-paper: 244 243 240;
+  --color-mist: 244 243 240;
+  --color-cool: 91 124 153;
+  --color-violet: 93 90 120;
+  --color-point: 238 244 255;
 
   --font-display: 'Neue Montreal', 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;
   --font-body: 'Suisse Int\'l', 'Inter', -apple-system, sans-serif;

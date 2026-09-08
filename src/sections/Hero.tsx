@@ -15,7 +15,7 @@ export function Hero() {
         <h1 className="font-display text-[clamp(2.75rem,8vw,8.5rem)] font-medium leading-[0.96] tracking-tightest text-paper">
           {hero.headline}
         </h1>
-        <p className="mt-8 max-w-md text-balance text-base text-mist md:text-lg">{hero.sub}</p>
+        <p className="mt-8 max-w-md text-balance text-base text-mist/60 md:text-lg">{hero.sub}</p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Button href="#denora" variant="primary">
             {hero.ctaPrimary}

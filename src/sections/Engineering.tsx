@@ -11,7 +11,7 @@ export function Engineering() {
     <section id="engineering" className="relative mx-auto max-w-4xl px-6 py-32 md:px-12 md:py-48">
       <ChapterBackdrop src={cinematic.engineering.src} poster={cinematic.engineering.poster} />
       <SectionHeading eyebrow={engineering.eyebrow}>{engineering.headline}</SectionHeading>
-      <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist">{engineering.body}</p>
+      <p className="mt-8 max-w-xl text-lg leading-relaxed text-mist/60">{engineering.body}</p>
 
       <ul ref={ref} className="mt-14 flex flex-wrap gap-x-3 gap-y-3" aria-label="Technologies used across the products">
         {engineering.stack.map((tech) => (

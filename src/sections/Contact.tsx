@@ -14,7 +14,7 @@ export function Contact() {
         <h2 className="max-w-3xl font-display text-[clamp(2.25rem,6vw,5.5rem)] font-medium leading-[1.02] tracking-tightest text-paper">
           {contact.headline}
         </h2>
-        <p className="mx-auto mt-6 max-w-md text-lg text-mist">{contact.body}</p>
+        <p className="mx-auto mt-6 max-w-md text-lg text-mist/60">{contact.body}</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Button href={`mailto:${contact.email}`} variant="primary">
             {contact.ctaPrimary}

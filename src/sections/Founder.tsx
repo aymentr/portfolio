@@ -19,7 +19,7 @@ export function Founder() {
       <ChapterBackdrop src={cinematic.founder.src} poster={cinematic.founder.poster} />
       <SectionHeading eyebrow={founder.eyebrow}>{founder.headline}</SectionHeading>
       <div ref={ref} className="mt-8">
-        <p className="max-w-xl text-lg leading-relaxed text-mist md:text-xl">{founder.body}</p>
+        <p className="max-w-xl text-lg leading-relaxed text-mist/60 md:text-xl">{founder.body}</p>
       </div>
     </section>
   );

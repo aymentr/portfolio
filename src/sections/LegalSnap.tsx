@@ -9,7 +9,7 @@ export function LegalSnap() {
       <SectionHeading eyebrow={legalsnap.eyebrow} align="center">
         {legalsnap.headline}
       </SectionHeading>
-      <p className="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-mist">{legalsnap.body}</p>
+      <p className="mx-auto mt-6 max-w-xl text-center text-lg leading-relaxed text-mist/60">{legalsnap.body}</p>
       <div className="mt-16">
         <CinematicProductDisplay
           product="legalsnap"

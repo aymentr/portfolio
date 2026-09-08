@@ -12,7 +12,7 @@ export function About() {
       <ChapterBackdrop src={cinematic.builder.src} poster={cinematic.builder.poster} />
       <SectionHeading eyebrow={about.eyebrow}>{about.headline}</SectionHeading>
       <div ref={ref} className="mt-8">
-        <p className="max-w-xl text-lg leading-relaxed text-mist">{about.body}</p>
+        <p className="max-w-xl text-lg leading-relaxed text-mist/60">{about.body}</p>
       </div>
     </section>
   );
