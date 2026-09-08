@@ -14,11 +14,15 @@ export function ATR() {
       <SectionHeading eyebrow={atr.eyebrow}>{atr.headline}</SectionHeading>
       <div ref={ref} className="mt-16 flex flex-col items-start gap-12 md:flex-row md:items-center md:justify-between">
         <p className="max-w-md text-lg leading-relaxed text-mist/60">{atr.body}</p>
-        <div className="relative flex w-full max-w-sm items-center justify-center py-4">
-          {/* A soft glow sized to the logo itself — enough to lift the logo's
-              own dark text off the dark scene without reading as a card or
-              dominating the section. The asset itself is untouched. */}
-          <div className="absolute -inset-3 rounded-xl bg-paper/95 blur-sm" aria-hidden="true" />
+        <div className="relative flex w-full max-w-sm items-center justify-center">
+          {/* A soft backing sized to hug the wordmark itself, not the logo's
+              transparent bounding box. The clip trims the PNG's large empty
+              top margin (~12%) and sits flush at the sides so the white reads
+              as a subtle lift behind the ink, never a card. Asset untouched. */}
+          <div
+            className="absolute inset-x-0 bottom-1 top-4 rounded-lg bg-paper/95 blur-[2px]"
+            aria-hidden="true"
+          />
           <BrandLogo className="relative w-full" />
         </div>
       </div>
