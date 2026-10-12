@@ -10,7 +10,7 @@ interface PointOfLightProps {
 /**
  * THE POINT OF LIGHT — the single recurring visual element described in
  * brief section 12. It represents an idea, and travels the entire site:
- * Aymen → ATR → Denora → LegalSnap → Engineering → Aymen → Future.
+ * Aymen → ATR → Engineering → Aymen → Future.
  */
 export function PointOfLight({ progress }: PointOfLightProps) {
   const group = useRef<THREE.Group>(null);
@@ -23,8 +23,6 @@ export function PointOfLight({ progress }: PointOfLightProps) {
         new THREE.Vector3(2.6, 0.6, -3.5), // hero — beside Aymen, clear of the headline
         new THREE.Vector3(1.6, 0.8, -4), // founder intro — the idea sets off
         new THREE.Vector3(-2.2, 1.4, -7), // ATR — into the ecosystem
-        new THREE.Vector3(2.6, -0.6, -9), // Denora — calm, human
-        new THREE.Vector3(-2.8, 0.9, -11), // LegalSnap — structured, colder
         new THREE.Vector3(0, 2.1, -13), // engineering — converges upward
         new THREE.Vector3(-1.4, 0.2, -10), // back to Aymen
         new THREE.Vector3(0.6, 0.6, -6), // philosophy

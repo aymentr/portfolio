@@ -50,8 +50,8 @@ src/
   context/         global scroll-progress provider driving the 3D scene
   hooks/           useSmoothScroll, useRevealAnimation, useParallax, useScrollProgress, useReducedMotion
   three/           the WebGL "point of light" environment (R3F)
-  components/      shared UI: Nav, Button, CinematicProductDisplay, CinematicVideo, ChapterBackdrop, BrandLogo, ...
-  sections/        one file per chapter (Hero, Founder, ATR, Denora, LegalSnap, Engineering, About, Philosophy, Contact)
+  components/      shared UI: Nav, Button, CinematicVideo, ChapterBackdrop, BrandLogo, ...
+  sections/        one file per chapter (Hero, Founder, ATR, Engineering, About, Philosophy, Contact)
 ```
 
 ## Dropping in the real assets
@@ -71,35 +71,21 @@ public/
     │   └── atr-logo.png                 the official ATR logo — used exactly as supplied (byte-identical
     │                                    to the provided file), never redrawn or recolored
     │
-    ├── denora/
-    │   ├── dashboard.webp
-    │   ├── patients.webp
-    │   ├── appointments.webp
-    │   ├── treatments.webp
-    │   └── odontogram.webp
-    │
-    ├── legalsnap/
-    │   ├── dashboard.webp
-    │   └── workflow.webp
-    │
     └── cinematic/                        Seedance 2.5 environments (+ poster stills)
         ├── founder.mp4 / founder.webm / founder-poster.jpg
         ├── atr.mp4 / atr.webm / atr-poster.jpg
-        ├── denora.mp4 / denora.webm / denora-poster.jpg
-        ├── legalsnap.mp4 / legalsnap.webm / legalsnap-poster.jpg
         ├── engineering.mp4 / engineering.webm / engineering-poster.jpg
         ├── builder.mp4 / builder.webm / builder-poster.jpg
         └── future.mp4 / future.webm / future-poster.jpg
 ```
 
-All seven chapters are generated — Seedance 2.5 via Higgsfield. ATR,
-Denora, LegalSnap, Engineering and Future are plain text-to-video (no
-reference image needed for abstract architectural environments).
-Founder and Builder were generated with Higgsfield's `omni_reference`
-mode using Aymen's real photo as a one-time identity reference — the
-photo itself isn't kept in this repo (only these two resulting video
-clips are), and the site no longer displays it as a still image
-anywhere.
+All five chapters with footage are generated — Seedance 2.5 via Higgsfield.
+ATR, Engineering and Future are plain text-to-video (no reference image
+needed for abstract architectural environments). Founder and Builder were
+generated with Higgsfield's `omni_reference` mode using Aymen's real photo
+as a one-time identity reference — the photo itself isn't kept in this repo
+(only these two resulting video clips are), and the site no longer displays
+it as a still image anywhere.
 
 Each generated clip has a `.webm` (VP9) companion alongside its `.mp4`
 (H.264) — `CinematicVideo` renders both as `<source>` children so the
@@ -107,17 +93,16 @@ browser picks whichever it can decode; drop-in footage that only supplies
 an `.mp4` still works fine; the `.webm` `<source>` just 404s harmlessly and
 the browser falls through to the `.mp4`.
 
-To add, rename or reorder screenshots, edit the arrays in
-`src/content/assets.ts` — `CinematicProductDisplay` renders whatever list
-it's given, and every path above is referenced from that one file only
-(never scattered through components).
+To add, rename or reorder the cinematic environments, edit the `cinematic`
+map in `src/content/assets.ts` — every path above is referenced from that
+one file only (never scattered through components).
 
 ## The point of light
 
 `src/three/PointOfLight.tsx` renders the single recurring visual element
 described in the design brief: a small luminous point that travels the
-entire page along one continuous path (Aymen → ATR → Denora → LegalSnap →
-Engineering → Aymen → Future), driven by whole-document scroll progress
+entire page along one continuous path (Aymen → ATR → Engineering → Aymen →
+Future), driven by whole-document scroll progress
 (`src/context/ScrollProgressContext.tsx`). `ArchitectureNetwork.tsx` fades
 in abstract node/line structures during the ATR and Engineering chapters
 only. Everything here is procedural WebGL, standing in for the brief's
@@ -135,11 +120,8 @@ untouched, so the site is complete before any footage exists. Under
 
 `ChapterBackdrop` wraps `CinematicVideo` as a full-bleed section background
 with a constant contrast scrim, used by Hero, Founder, ATR, Engineering,
-About and Contact. `CinematicProductDisplay` takes the same clip via its
-`cinematicVideo` prop and composites it behind the real product
-screenshots for Denora and LegalSnap — the screenshot is always the
-foreground source of truth; the video is only ever the environment around
-it.
+About and Contact — the real footage is always just the environment behind
+the content, never the content itself.
 
 ## SEO
 

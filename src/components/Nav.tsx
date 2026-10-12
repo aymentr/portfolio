@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { nav } from '@/content/copy';
 
 const sectionIdFor: Record<(typeof nav)[number], string> = {
-  WORK: 'denora',
+  WORK: 'atr',
   ABOUT: 'about',
   EXPERIENCE: 'engineering',
   CONTACT: 'contact',

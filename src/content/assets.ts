@@ -36,19 +36,6 @@ export const atrLogo: AssetSlot = {
   alt: 'ATR Business Solutions logo — "Software That Works"',
 };
 
-export const denoraScreenshots: AssetSlot[] = [
-  { src: withBase('assets/denora/dashboard.webp'), alt: 'Denora dashboard — live waiting-room board and daily overview' },
-  { src: withBase('assets/denora/calendar.webp'), alt: 'Denora appointment calendar — week view across treatment rooms' },
-  { src: withBase('assets/denora/patient.webp'), alt: 'Denora patient profile with interactive FDI tooth chart' },
-  { src: withBase('assets/denora/recalls.webp'), alt: 'Denora patient recall management' },
-  { src: withBase('assets/denora/intake.webp'), alt: 'Denora QR patient intake — smartphone self-registration' },
-];
-
-export const legalSnapScreenshots: AssetSlot[] = [
-  { src: withBase('assets/legalsnap/dashboard.webp'), alt: 'LegalSnap dashboard' },
-  { src: withBase('assets/legalsnap/workflow.webp'), alt: 'LegalSnap case workflow' },
-];
-
 /**
  * Optional Seedance 2.5 cinematic environments — one continuous visual
  * universe, per brief section 24/32. Each is optional — sections fall back
@@ -60,11 +47,6 @@ export const legalSnapScreenshots: AssetSlot[] = [
 export const cinematic = {
   founder: { src: withBase('assets/cinematic/founder.mp4'), poster: withBase('assets/cinematic/founder-poster.jpg') },
   atr: { src: withBase('assets/cinematic/atr.mp4'), poster: withBase('assets/cinematic/atr-poster.jpg') },
-  denora: { src: withBase('assets/cinematic/denora.mp4'), poster: withBase('assets/cinematic/denora-poster.jpg') },
-  legalsnap: {
-    src: withBase('assets/cinematic/legalsnap.mp4'),
-    poster: withBase('assets/cinematic/legalsnap-poster.jpg'),
-  },
   engineering: {
     src: withBase('assets/cinematic/engineering.mp4'),
     poster: withBase('assets/cinematic/engineering-poster.jpg'),

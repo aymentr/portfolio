@@ -32,13 +32,11 @@ export function useGlobalScrollProgress() {
   return useContext(ScrollProgressContext);
 }
 
-/** The nine narrative chapters, in scroll order, each given an equal share of the timeline. */
+/** The seven narrative chapters, in scroll order, each given an equal share of the timeline. */
 export const CHAPTERS = [
   'hero',
   'founder',
   'atr',
-  'denora',
-  'legalsnap',
   'engineering',
   'about',
   'philosophy',

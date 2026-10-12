@@ -29,20 +29,6 @@ export const atr = {
   body: 'The business layer behind the products — where ideas become systems, and systems become companies.',
 };
 
-export const denora = {
-  eyebrow: 'THE PRODUCT',
-  headline: 'DENORA',
-  body: 'Modern dental practice management — built for organization, clarity, precision and trust.',
-  tone: 'calm' as const,
-};
-
-export const legalsnap = {
-  eyebrow: 'THE PRODUCT',
-  headline: 'LEGALSNAP',
-  body: 'A structured, analytical, intelligent workspace — built for precision and clarity in legal work.',
-  tone: 'analytical' as const,
-};
-
 export const engineering = {
   eyebrow: 'THE SYSTEM',
   headline: 'BUILT FROM THE INSIDE.',

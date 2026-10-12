@@ -17,7 +17,7 @@ export function Hero() {
         </h1>
         <p className="mt-8 max-w-md text-balance text-base text-mist/60 md:text-lg">{hero.sub}</p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button href="#denora" variant="primary">
+          <Button href="#atr" variant="primary">
             {hero.ctaPrimary}
           </Button>
           <Button href="#contact" variant="ghost">

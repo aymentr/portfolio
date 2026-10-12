@@ -19,7 +19,7 @@ export function Contact() {
           <Button href={`mailto:${contact.email}`} variant="primary">
             {contact.ctaPrimary}
           </Button>
-          <Button href="#denora" variant="ghost">
+          <Button href="#atr" variant="ghost">
             {contact.ctaSecondary}
           </Button>
         </div>

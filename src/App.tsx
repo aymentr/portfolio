@@ -8,8 +8,6 @@ import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { Hero } from '@/sections/Hero';
 import { Founder } from '@/sections/Founder';
 import { ATR } from '@/sections/ATR';
-import { Denora } from '@/sections/Denora';
-import { LegalSnap } from '@/sections/LegalSnap';
 import { Engineering } from '@/sections/Engineering';
 import { About } from '@/sections/About';
 import { Philosophy } from '@/sections/Philosophy';
@@ -41,8 +39,6 @@ function Experience() {
         <Hero />
         <Founder />
         <ATR />
-        <Denora />
-        <LegalSnap />
         <Engineering />
         <About />
         <Philosophy />
